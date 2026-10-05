@@ -1,0 +1,17 @@
+name: Auto Assign Task
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  add-assignee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-assign creator
+        uses: toshimaru/auto-author-assign@v2.1.0
+        with:
+          # 沿用你前面建好的 Token，擁有完整權限
+          repo-token: ${{ secrets.REPO_TOKEN }}
